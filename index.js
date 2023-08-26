@@ -63,3 +63,27 @@ function createButtonHtml(index, value) {
             </div>`;
 }
 
+function updateButtonOnGrid (index, value){
+    const buttonArea = document.getElementById(`button-${index}`);
+    const buttonValue = buttonArea.querySelector(".button-value");
+    buttonValue.innerHTML = value.toFixed(2);
+}
+
+function handleButtons(buttons) {
+    for ( let i=0; i < buttons.length; i++ ) {
+        const buttonValue = buttons[i].value;
+        updateButtonOnGrid(i, buttonValue)
+
+    }
+}
+
+function gameLoop() {
+    console.log("game loop");  
+    if (controllerIndex !== null){
+        const gamepad = navigator.getGamepads()[controllerIndex];
+        handleButtons(gamepad.buttons);
+    }
+    requestAnimationFrame(gameLoop); 
+};
+
+gameLoop();
