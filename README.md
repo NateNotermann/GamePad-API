@@ -34,6 +34,7 @@ This repository contains a simple JavaScript code that enables a web-based inter
 ## Compatibility
 
 Tested and compatible with modern browsers supporting the Gamepad API.
+Requires a PlayStation or Xbox controller.
 
 ## Resources & Acknowledgements
 
