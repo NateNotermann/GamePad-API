@@ -1,7 +1,9 @@
 # Gamepad Tester using the GamePad-API 
 
+This project was created using the [**Gamepad API**](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API) and by following the [**JavaScript Gamepad Tester Tutorial**](https://youtu.be/tQyrpcOK6U0?si=Bl0z4gGgTv2pXoZD) created by YouTuber [**@CodingWithAdam**](https://www.youtube.com/@CodingWithAdam).
+Please see below **Acknowledgements** section for full list resources and links.
 
-
+## Usage
 This repository contains a simple JavaScript code that enables a web-based interface for monitoring and visualizing inputs from a gamepad controller. The interface dynamically updates to display controller buttons and axes, and supports optional rumble effects triggered by button presses.
 
 ## Features
@@ -45,5 +47,3 @@ Original **gamepad-api-simple-game GitHub Repo** here: [https://github.com/Codin
 Please check out his GitHub profile for more of his work here: [https://github.com/CodingWith-Adam](https://github.com/CodingWith-Adam)  
 
 **Controller Image SVG Code**: [https://gist.github.com/CodingWith-Adam/66f62365af3214b9fa7c1342c71264de](https://gist.github.com/CodingWith-Adam/66f62365af3214b9fa7c1342c71264de)
-
-This project was created using the [**Gamepad API**](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API) and by following the [**JavaScript Gamepad Tester Tutorial**](https://youtu.be/tQyrpcOK6U0?si=Bl0z4gGgTv2pXoZD) created by YouTuber [**@CodingWithAdam**](https://www.youtube.com/@CodingWithAdam)
