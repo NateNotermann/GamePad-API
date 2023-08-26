@@ -74,11 +74,24 @@ function updateButtonOnGrid (index, value) {
     buttonMeter.setAttribute("y", meterPosition);
 }
 
+function updateControllerButton(index, value) {
+    const button = document.getElementById(`controller-b${index}`);
+    const selectedButtonClass = "selected-button";
+
+    if( button) {
+        if(value > 0 ) {
+            button.classList.add(selectedButtonClass);
+        } else {
+            button.classList.remove(selectedButtonClass);
+        }
+    }
+}
+
 function handleButtons(buttons) {
     for ( let i=0; i < buttons.length; i++ ) {
         const buttonValue = buttons[i].value;
         updateButtonOnGrid(i, buttonValue)
-
+        updateControllerButton(i, buttonValue);
     }
 }
 

@@ -82,3 +82,16 @@ h1 {
     min-width: 50px;
     display: flex;
 }
+
+.button-text-area {
+    color: grey;
+}
+
+.button-name {
+    color: grey;
+}
+
+/* Controller */
+.selected-button {
+    fill: rgb(231, 24, 24);
+}
