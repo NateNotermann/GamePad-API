@@ -39,7 +39,7 @@ This project was created using the **Gamepad API**: [https://developer.mozilla.o
 and by following the **JavaScript Gamepad Tester Tutorial**: [https://youtu.be/tQyrpcOK6U0?si=Bl0z4gGgTv2pXoZD](https://youtu.be/tQyrpcOK6U0?si=Bl0z4gGgTv2pXoZD) 
 Tutorial created by YouTuber **@CodingWithAdam** [https://www.youtube.com/@CodingWithAdam](https://www.youtube.com/@CodingWithAdam)
 
-Check out the original **gamepad-api-simple-game** GitHub Repo here: [https://github.com/CodingWith-Adam/gamepad-api-simple-game](https://github.com/CodingWith-Adam/gamepad-api-simple-game)
+Original **gamepad-api-simple-game GitHub Repo** here: [https://github.com/CodingWith-Adam/gamepad-api-simple-game](https://github.com/CodingWith-Adam/gamepad-api-simple-game)
 
 Please check out his GitHub profile for more of his work here: [https://github.com/CodingWith-Adam](https://github.com/CodingWith-Adam)  
 
