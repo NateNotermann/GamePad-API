@@ -81,8 +81,10 @@ function updateControllerButton(index, value) {
     if( button) {
         if(value > 0 ) {
             button.classList.add(selectedButtonClass);
+            button.style.filter = `contrast(${value * 200}%)`
         } else {
             button.classList.remove(selectedButtonClass);
+            button.style.filter = `contrast(100%)`
         }
     }
 }
@@ -95,11 +97,17 @@ function handleButtons(buttons) {
     }
 }
 
+function handleSticks(axes){
+    updateStick("controller-b10", axes[0], axes[1]) 
+    updateStick("controller-b10", axes[0], axes[1]) 
+}
+
 function gameLoop() {
     // console.log("game loop");  
     if (controllerIndex !== null){
         const gamepad = navigator.getGamepads()[controllerIndex];
         handleButtons(gamepad.buttons);
+        handleSticks(gamepad.axes);
     }
     requestAnimationFrame(gameLoop); 
 };
