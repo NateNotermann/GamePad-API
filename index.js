@@ -99,11 +99,23 @@ function handleButtons(buttons) {
 
 function handleSticks(axes){
     updateStick("controller-b10", axes[0], axes[1]) 
-    updateStick("controller-b10", axes[0], axes[1]) 
+    updateStick("controller-b11", axes[2], axes[3]) 
+}
+
+function updateStick(elementId, leftRightAxis, upDownAxis){
+    const multiplier = 25;
+    const stickLeftRight = leftRightAxis * multiplier;
+    const stickUpDown = upDownAxis * multiplier;
+
+    const stick = document.getElementById(elementId);
+    const x = Number(stick.dataset.originalXPosition);
+    const y = Number(stick.dataset.originalYPosition);
+
+    stick.setAttribute('cx', x + stickLeftRight);
+    stick.setAttribute('cy', y + stickUpDown);
 }
 
 function gameLoop() {
-    // console.log("game loop");  
     if (controllerIndex !== null){
         const gamepad = navigator.getGamepads()[controllerIndex];
         handleButtons(gamepad.buttons);
