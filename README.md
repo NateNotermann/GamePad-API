@@ -5,7 +5,6 @@
 
 This repository contains a simple JavaScript code that enables a web-based interface for monitoring and visualizing inputs from a gamepad controller. The interface dynamically updates to display controller buttons and axes, and supports optional rumble effects triggered by button presses.
 
-![Web App Demo](WebAppGif.gif)
 
 ## Features
 
@@ -13,6 +12,8 @@ This repository contains a simple JavaScript code that enables a web-based inter
 - Visual representation of buttons using rectangles with text labels.
 - Numeric display of axes values and SVG circles for stick positions.
 - Supports optional rumble effect triggered by button presses.
+
+![Web App Demo](WebAppGif.gif)
 
 ## Functions
 
