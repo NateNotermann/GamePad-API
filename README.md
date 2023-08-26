@@ -4,28 +4,13 @@ This repository contains a simple JavaScript code that enables a web-based inter
 
 ## Usage
 
-1. Include the following HTML structure in your web page:
+If desired, add a checkbox with the ID `rumble-on-button-press` to enable rumble functionality:
 
     ```html
-    <div id="controller-not-connected-area">
-      <p>Controller not connected.</p>
-    </div>
-    <div id="controller-connected-area" style="display: none;">
-      <div id="buttons"></div>
-      <!-- Add more elements for stick visualization or other features -->
-    </div>
-    ```
-
-2. Include the JavaScript code in your web page or link it as an external script:
-
-    ```html
-    <script src="path/to/gamepad-monitor.js"></script>
-    ```
-
-3. If desired, add a checkbox with the ID `rumble-on-button-press` to enable rumble functionality:
-
-    ```html
-    <input type="checkbox" id="rumble-on-button-press"> Rumble on button press
+        <div id="rumble-on-button-press-area">
+            <input id="rumble-on-button-press" type="checkbox"/>
+            <label for="rumble-on-button-press">Rumble on button press</label>
+        </div>
     ```
 
 ## Features
