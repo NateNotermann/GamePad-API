@@ -1,10 +1,8 @@
 # Gamepad Tester using the GamePad-API 
 
 
-## Usage
 
 This repository contains a simple JavaScript code that enables a web-based interface for monitoring and visualizing inputs from a gamepad controller. The interface dynamically updates to display controller buttons and axes, and supports optional rumble effects triggered by button presses.
-
 
 ## Features
 
@@ -12,6 +10,7 @@ This repository contains a simple JavaScript code that enables a web-based inter
 - Visual representation of buttons using rectangles with text labels.
 - Numeric display of axes values and SVG circles for stick positions.
 - Supports optional rumble effect triggered by button presses.
+
 
 ![Web App Demo](WebAppGif.gif)
 
@@ -36,8 +35,11 @@ Tested and compatible with modern browsers supporting the Gamepad API.
 
 ## Resources & Acknowledgements
 
-This project was created using the [Gamepad API](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API) and [JavaScript Gamepad Tester Tutorial](https://www.youtube.com/watch?v=tQyrpcOK6U0&ab_channel=CodingWithAdam) by [Coding With Adam](https://www.youtube.com/@CodingWithAdam)
+This project was created using the **Gamepad API**: [https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API) 
+and by following the **JavaScript Gamepad Tester Tutorial**: [https://www.youtube.com/watch?v=tQyrpcOK6U0&ab_channel=CodingWithAdam](https://www.youtube.com/watch?v=tQyrpcOK6U0&ab_channel=CodingWithAdam) 
+Tutorial created by **Coding With Adam** [https://www.youtube.com/@CodingWithAdam](https://www.youtube.com/@CodingWithAdam)
 
-Check out the original GitHub Repo [HERE](https://github.com/CodingWith-Adam/gamepad-api-simple-game)
+Check out the original GitHub Repo by **CodingWith-Adam** here: [https://github.com/CodingWith-Adam/gamepad-api-simple-game](https://github.com/CodingWith-Adam/gamepad-api-simple-game)
+Please check out more of his work here: [https://github.com/CodingWith-Adam](https://github.com/CodingWith-Adam)  
 
-[Controller Image SVG Code](https://gist.github.com/CodingWith-Adam/66f62365af3214b9fa7c1342c71264de)
+**Controller Image SVG Code**: [https://gist.github.com/CodingWith-Adam/66f62365af3214b9fa7c1342c71264de](https://gist.github.com/CodingWith-Adam/66f62365af3214b9fa7c1342c71264de)
