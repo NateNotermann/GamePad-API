@@ -119,9 +119,9 @@ function updateAxesGrid(axes) { // update and print axes values
     for ( let i = 0; i < axes.length; i++ ) {
         const axis = document.querySelector(`#axis-${i} .axis-value`);
         const value = axes[i];
-        // if (value > 0.06 || value < 0.06) {
-            axis.innerHTML = value.toFixed(4);
-            // }     
+        // if (value > 0.06 || value < 0.06) {      
+            axis.innerHTML = value.toFixed(4); 
+            // }    // code for PlayStation controllers so the axis doesn't constantly update even when not moving
     }
 }
 
@@ -138,11 +138,27 @@ function updateStick(elementId, leftRightAxis, upDownAxis){ // move sticks
     stick.setAttribute('cy', y + stickUpDown);
 }
 
+function handleRumble(gamepad) { // handle controller rumble
+    const rumbleOnButtonPress = document.getElementById("rumble-on-button-press");
+
+    if(rumbleOnButtonPress.checked) {
+        if(gamepad.buttons.some(button => button.value > 0)) {
+            gamepad.vibrationActuator.playEffect("dual-rumble", {
+                startDelay: 0,
+                duration: 25,
+                weakMagnitude: .5,
+                strongMagnitude: 1.0,
+            });           
+        }
+    }
+}
+
 function gameLoop() { // main game loop to continuously render gamepad
     if (controllerIndex !== null){ //if not disconnected
         const gamepad = navigator.getGamepads()[controllerIndex]; // get index
         handleButtons(gamepad.buttons); 
         handleSticks(gamepad.axes);
+        handleRumble(gamepad);
     }
     requestAnimationFrame(gameLoop); 
 };
