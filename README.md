@@ -1,17 +1,11 @@
 # Gamepad Tester using the GamePad-API 
 
-This repository contains a simple JavaScript code that enables a web-based interface for monitoring and visualizing inputs from a gamepad controller. The interface dynamically updates to display controller buttons and axes, and supports optional rumble effects triggered by button presses.
 
 ## Usage
 
-If desired, add a checkbox with the ID `rumble-on-button-press` to enable rumble functionality:
+This repository contains a simple JavaScript code that enables a web-based interface for monitoring and visualizing inputs from a gamepad controller. The interface dynamically updates to display controller buttons and axes, and supports optional rumble effects triggered by button presses.
 
-    ```html
-        <div id="rumble-on-button-press-area">
-            <input id="rumble-on-button-press" type="checkbox"/>
-            <label for="rumble-on-button-press">Rumble on button press</label>
-        </div>
-    ```
+![Web App Demo](WebAppGif.gif)
 
 ## Features
 
