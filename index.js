@@ -1,18 +1,25 @@
 let controllerIndex = null; // controller is null aka disconnected by default, until button is pressed
 
-
 window.addEventListener('gamepadconnected', (event) => { // Listen for controller to be connect
     handleConnectDisconnect(event, true);
+    console.log(
+        "Gamepad connected from index %d: %s",
+        event.gamepad.index,
+        event.gamepad.id,
+      );
 })
 
 window.addEventListener('gamepaddisconnected', (event) => { // Listen for controller to be disconnect
     handleConnectDisconnect(event, false);
+    console.log(
+        "Gamepad DISCONNECTED from index %d: %s",
+        event.gamepad.index,
+        event.gamepad.id,
+      );
 })
 
-
-
 function handleConnectDisconnect(event, connected) {
-    console.log(connected); //  CL if connected status true/false
+    // console.log('controller connected is:', connected); //  CL if connected status true/false
     const controllerAreaNotConnected = document.getElementById( // store element in variable
         'controller-not-connected-area'
         );
@@ -21,7 +28,7 @@ function handleConnectDisconnect(event, connected) {
         );
             
 const gamepad = event.gamepad;  // store gamepad attributes  in variable
-console.log(gamepad); // console logs all of the gamepad's attributes 
+// console.log(gamepad); // console logs all of the gamepad's attributes 
 
 if (connected) { // if connected
         controllerIndex = gamepad.index; // get the index
