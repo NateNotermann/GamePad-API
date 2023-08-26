@@ -1,48 +1,60 @@
-let controllerIndex = null;
+let controllerIndex = null; // controller is null aka disconnected by default, until button is pressed
 
-window.addEventListener('gamepadconnected', (event) => {
+
+window.addEventListener('gamepadconnected', (event) => { // Listen for controller to be connect
     handleConnectDisconnect(event, true);
 })
 
-window.addEventListener('gamepaddisconnected', (event) => {
+window.addEventListener('gamepaddisconnected', (event) => { // Listen for controller to be disconnect
     handleConnectDisconnect(event, false);
 })
 
 
 
 function handleConnectDisconnect(event, connected) {
-    console.log(connected);
-    const controllerAreaNotConnected = document.getElementById(
+    console.log(connected); //  CL if connected status true/false
+    const controllerAreaNotConnected = document.getElementById( // store element in variable
         'controller-not-connected-area'
         );
-        const controllerAreaConnected = document.getElementById(
-            'controller-connected-area'
-            );
+    const controllerAreaConnected = document.getElementById( // store element in variable
+        'controller-connected-area'
+        );
             
-const gamepad = event.gamepad;
-console.log(gamepad);
+const gamepad = event.gamepad;  // store gamepad attributes  in variable
+console.log(gamepad); // console logs all of the gamepad's attributes 
 
-if (connected) {
-        controllerIndex = gamepad.index;
-        controllerAreaNotConnected.style.display = "none";
-        controllerAreaConnected.style.display = "block";
-        createButtonLayout(gamepad.buttons);
+if (connected) { // if connected
+        controllerIndex = gamepad.index; // get the index
+        controllerAreaNotConnected.style.display = "none";  // turn off disconnected message
+        controllerAreaConnected.style.display = "block";  // turn on connected message
+        createButtonLayout(gamepad.buttons); // run function to create button layout
+        createAxesLayout(gamepad.axes); // run function to create Axes layout
     } else {
-        controllerIndex = null;
-        controllerAreaNotConnected.style.display = "block";
-        controllerAreaConnected.style.display = "none";
+        controllerIndex = null; // set controller back to null
+        controllerAreaNotConnected.style.display = "block"; // turn on disconnected message
+        controllerAreaConnected.style.display = "none"; // turn off connected message
     }
 }
 
-function createButtonLayout(buttons) {
+function createAxesLayout(axes) { // create axes element using HTML & string interpolation
+    const buttonsArea = document.getElementById("buttons");
+    for ( let i=0; i < axes.length; i++ ) {
+        buttonsArea.innerHTML += `<div id=axis-${i} class='axis'>
+                                    <div class='axis-name'>AXIS ${i}</div>
+                                    <div class='axis-value'>${axes[i].toFixed(4)}</div>
+                                  </div>`;
+    }
+}
+
+function createButtonLayout(buttons) { // loop through all buttons
     const buttonArea = document.getElementById("buttons");
     buttonArea.innerHTML = "";
-    for(let i=0; i < buttons.length; i++) {
+    for(let i=0; i < buttons.length; i++) { 
         buttonArea.innerHTML += createButtonHtml(i,0);
     }
 }
 
-function createButtonHtml(index, value) {
+function createButtonHtml(index, value) { // create each button layout element using HTML & string interpolation
     return `<div class="button" id="button-${index}">
                 <svg width="10px" height="50px">
                     <rect width="10px" height="50px" fill="grey"></rect>
@@ -63,14 +75,14 @@ function createButtonHtml(index, value) {
             </div>`;
 }
 
-function updateButtonOnGrid (index, value) {
+function updateButtonOnGrid (index, value) { 
     const buttonArea = document.getElementById(`button-${index}`);
     const buttonValue = buttonArea.querySelector(".button-value");
-    buttonValue.innerHTML = value.toFixed(2);
+    buttonValue.innerHTML = value.toFixed(2); // show each buttons value live
 
     const buttonMeter = buttonArea.querySelector(".button-meter");
-    const meterHeight = Number(buttonMeter.dataset.originalYPosition)
-    const meterPosition = meterHeight - (meterHeight / 100) * (value * 100);
+    const meterHeight = Number(buttonMeter.dataset.originalYPosition) 
+    const meterPosition = meterHeight - (meterHeight / 100) * (value * 100); // change meter size and position live
     buttonMeter.setAttribute("y", meterPosition);
 }
 
@@ -78,7 +90,7 @@ function updateControllerButton(index, value) {
     const button = document.getElementById(`controller-b${index}`);
     const selectedButtonClass = "selected-button";
 
-    if( button) {
+    if( button) { // if pressed, match trigger contrast to pressure of press
         if(value > 0 ) {
             button.classList.add(selectedButtonClass);
             button.style.filter = `contrast(${value * 200}%)`
@@ -89,21 +101,32 @@ function updateControllerButton(index, value) {
     }
 }
 
-function handleButtons(buttons) {
+function handleButtons(buttons) { // loop through buttons
     for ( let i=0; i < buttons.length; i++ ) {
         const buttonValue = buttons[i].value;
-        updateButtonOnGrid(i, buttonValue)
-        updateControllerButton(i, buttonValue);
+        updateButtonOnGrid(i, buttonValue); // update buttons value
+        updateControllerButton(i, buttonValue); // update buttons color/style CSS
     }
 }
 
 function handleSticks(axes){
+    updateAxesGrid(axes);
     updateStick("controller-b10", axes[0], axes[1]) 
     updateStick("controller-b11", axes[2], axes[3]) 
 }
 
-function updateStick(elementId, leftRightAxis, upDownAxis){
-    const multiplier = 25;
+function updateAxesGrid(axes) { // update and print axes values
+    for ( let i = 0; i < axes.length; i++ ) {
+        const axis = document.querySelector(`#axis-${i} .axis-value`);
+        const value = axes[i];
+        // if (value > 0.06 || value < 0.06) {
+            axis.innerHTML = value.toFixed(4);
+            // }     
+    }
+}
+
+function updateStick(elementId, leftRightAxis, upDownAxis){ // move sticks
+    const multiplier = 25; // set amount to move stick images
     const stickLeftRight = leftRightAxis * multiplier;
     const stickUpDown = upDownAxis * multiplier;
 
@@ -115,13 +138,13 @@ function updateStick(elementId, leftRightAxis, upDownAxis){
     stick.setAttribute('cy', y + stickUpDown);
 }
 
-function gameLoop() {
-    if (controllerIndex !== null){
-        const gamepad = navigator.getGamepads()[controllerIndex];
-        handleButtons(gamepad.buttons);
+function gameLoop() { // main game loop to continuously render gamepad
+    if (controllerIndex !== null){ //if not disconnected
+        const gamepad = navigator.getGamepads()[controllerIndex]; // get index
+        handleButtons(gamepad.buttons); 
         handleSticks(gamepad.axes);
     }
     requestAnimationFrame(gameLoop); 
 };
 
-gameLoop();
+gameLoop(); 

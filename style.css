@@ -95,3 +95,12 @@ h1 {
 .selected-button {
     fill: rgb(231, 24, 24);
 }
+
+.axis-name {
+    fill: grey;
+    font-weight: bolder;
+}
+
+.axis-value {
+    color: rgb(126, 54, 54);
+}
